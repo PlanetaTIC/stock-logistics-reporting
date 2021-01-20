@@ -2,6 +2,9 @@
 <odoo>
 
     <template id="valued_report_one_grouped_deliveryslip_picking" inherit_id="stock_picking_group.report_one_grouped_deliveryslip_picking">
+        <xpath expr="//tr/td[@colspan='2']" position="attributes">
+            <attribute name="colspan">7</attribute>
+        </xpath>
         <xpath expr="//tr[@t-as='move']" position="inside">
             <t t-if="picking.valued and picking.sale_id and picking.move_line_ids">
                 <t t-if="move.picking_id.state != 'done'">
@@ -27,9 +30,6 @@
     </template>
 
     <template id="valued_report_one_grouped_deliveryslip_pickings" inherit_id="stock_picking_group.report_one_grouped_deliveryslip_pickings">
-        <xpath expr="//tr/td[@colspan='2']" position="attributes">
-            <attribute name="colspan">7</attribute>
-        </xpath>
         <xpath expr="//table[@class='table table-sm mt48']/thead/tr" position="inside">
             <t t-if="pickings.valued">
                 <th class="text-right"><strong>Unit Price</strong></th>
